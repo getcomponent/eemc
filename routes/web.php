@@ -15,7 +15,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/piy', 'DocController@piy');
+Route::get('/theory', 'DocController@theory');
+Route::get('/practice', 'DocController@practice');
+Route::get('/supporting', 'DocController@supporting');
 
 Auth::routes();
 

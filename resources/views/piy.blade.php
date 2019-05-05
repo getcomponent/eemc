@@ -8,7 +8,7 @@
 		<div>
 			<img src="{{$doc->image}}">
 			<p>
-				<a href="{{$doc->path}}" download>
+				<a href="{{$doc->path}}">
 					{{$doc->name}}
 				</a>
 			</p>
