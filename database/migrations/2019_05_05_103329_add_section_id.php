@@ -13,9 +13,9 @@ class AddSectionId extends Migration
      */
     public function up()
     {
-        Schema::table('doc', function (Blueprint $table) {
+        Schema::table('docs', function (Blueprint $table) {
             $table->bigInteger('section_id')->unsigned();
-            $table->foreign('section_id')->references('id')->on('section');
+            $table->foreign('section_id')->references('id')->on('sections');
         });
     }
 
@@ -26,7 +26,7 @@ class AddSectionId extends Migration
      */
     public function down()
     {
-        Schema::table('doc', function (Blueprint $table) {
+        Schema::table('docs', function (Blueprint $table) {
             $table->dropColumn(['section_id']);
         });
     }

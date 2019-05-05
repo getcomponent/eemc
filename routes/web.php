@@ -15,7 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/piy', 'Controller@piy');
+Route::get('/piy', 'DocController@piy');
 
 Auth::routes();
 

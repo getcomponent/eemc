@@ -13,7 +13,7 @@ class CreateDoc extends Migration
      */
     public function up()
     {
-        Schema::create('doc', function (Blueprint $table) {
+        Schema::create('docs', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
             $table->string('path')->unique();
@@ -30,6 +30,6 @@ class CreateDoc extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('doc');
+        Schema::dropIfExists('docs');
     }
 }
