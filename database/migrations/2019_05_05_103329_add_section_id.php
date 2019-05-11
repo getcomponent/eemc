@@ -27,7 +27,8 @@ class AddSectionId extends Migration
     public function down()
     {
         Schema::table('docs', function (Blueprint $table) {
-            $table->dropColumn(['section_id']);
+            $table->dropForeign('docs_section_id_foreign');
+            $table->dropColumn('section_id');
         });
     }
 }

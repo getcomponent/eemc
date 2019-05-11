@@ -18,6 +18,8 @@ Route::get('/', function () {
 Route::get('/theory', 'DocController@theory');
 Route::get('/practice', 'DocController@practice');
 Route::get('/supporting', 'DocController@supporting');
+Route::get('/tests', 'TestController@index');
+
 
 Auth::routes();
 

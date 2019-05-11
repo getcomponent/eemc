@@ -9,7 +9,7 @@ class DocController extends Controller {
 
 	public function getDocs($sectionId) {
     	$docs = Doc::all()->where('section_id', $sectionId);
-        return view('piy')->with('docs', $docs);
+        return view('docs')->with('docs', $docs);
     }
 
     public function theory() {
@@ -23,6 +23,4 @@ class DocController extends Controller {
     public function supporting() {
     	return $this->getDocs(3);
     }
-
-	
 }
