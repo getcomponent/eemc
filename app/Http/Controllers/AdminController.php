@@ -176,29 +176,29 @@ class AdminController extends Controller
                 $test->image = "";
                 $test->save();
 
-                $tests = Test::all();
+                // $tests = Test::all();
 
-                DB::statement('SET FOREIGN_KEY_CHECKS=0;');
+                // DB::statement('SET FOREIGN_KEY_CHECKS=0;');
 
-                for ($i = 0; $i < count($tests); $i++) {
-                    $t = $tests[$i];
-                    $index = $i + 1;
+                // for ($i = 0; $i < count($tests); $i++) {
+                //     $t = $tests[$i];
+                //     $index = $i + 1;
 
-                    $qs = Question::all()->where('test_id', $t->id);
-                    foreach ($qs as $q) {
-                        $q->test_id = $index;
-                        $q->save();
-                    }
-                    //throw new \Exception($qs);
+                //     $qs = Question::all()->where('test_id', $t->id);
+                //     foreach ($qs as $q) {
+                //         $q->test_id = $index;
+                //         $q->save();
+                //     }
+                //     //throw new \Exception($qs);
 
-                    if ($t->id != $index) {
+                //     if ($t->id != $index) {
 
-                        $t->id = $index;
-                        $t->save();
-                    }
-                }
+                //         $t->id = $index;
+                //         $t->save();
+                //     }
+                // }
 
-                DB::statement('SET FOREIGN_KEY_CHECKS=1;');
+                // DB::statement('SET FOREIGN_KEY_CHECKS=1;');
 
                 foreach ($questions as $question) {
                     $question->test_id = $test->id;
