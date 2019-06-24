@@ -7,16 +7,14 @@
         "laravel"
     ],
     "license": "MIT",
-    "require":
-    {
+    "require": {
         "php": "^7.1.3",
         "doctrine/dbal": "^2.9",
         "fideloper/proxy": "^4.0",
         "laravel/framework": "5.8.*",
         "laravel/tinker": "^1.0"
     },
-    "require-dev":
-    {
+    "require-dev": {
         "beyondcode/laravel-dump-server": "^1.0",
         "filp/whoops": "^2.0",
         "fzaninotto/faker": "^1.4",
@@ -24,23 +22,18 @@
         "nunomaduro/collision": "^2.0",
         "phpunit/phpunit": "^7.5"
     },
-    "config":
-    {
+    "config": {
         "optimize-autoloader": true,
         "preferred-install": "dist",
         "sort-packages": true
     },
-    "extra":
-    {
-        "laravel":
-        {
+    "extra": {
+        "laravel": {
             "dont-discover": []
         }
     },
-    "autoload":
-    {
-        "psr-4":
-        {
+    "autoload": {
+        "psr-4": {
             "App\\": "app/"
         },
         "classmap": [
@@ -48,17 +41,14 @@
             "database/factories"
         ]
     },
-    "autoload-dev":
-    {
-        "psr-4":
-        {
+    "autoload-dev": {
+        "psr-4": {
             "Tests\\": "tests/"
         }
     },
     "minimum-stability": "dev",
     "prefer-stable": true,
-    "scripts":
-    {
+    "scripts": {
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
             "@php artisan package:discover --ansi"
@@ -68,11 +58,6 @@
         ],
         "post-create-project-cmd": [
             "@php artisan key:generate --ansi"
-        ],
-        "post-install-cmd": [
-            "php artisan clear-compiled",
-            "php artisan optimize",
-            "chmod -R 777 public/"
         ]
     }
 }
