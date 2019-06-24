@@ -168,7 +168,7 @@ $(document).ready(function() {
 function addQuestion() {
     $('#questions').append(`
         <div class="question" style="margin-top: 50px; margin-bottom: 50px;">
-            <p>Текст вопроса: <input type="text" name="question[][text]"></p>
+            <p>Текст вопроса: <input type="text" name="question_text"></p>
             <div id="answers">
             </div>
             <input type="button" class="add_answer" value="Добавить ответ">
@@ -177,15 +177,11 @@ function addQuestion() {
 }
 
 function addAnswer() {
-    var q = $(this).closest('.question');
-    var question = q.index();
-    var answer = q.find('#answers').children().length;
-    q.find('#answers').append(`
-        <div>
-            <p>
-                <input type="checkbox" name="question[${question}][answers][${answer}][is_correct]" value="y">
-                <input type="text" name="question[${question}][answers][${answer}][text]">
-            </p>
+    var answers = $(this).closest('.question').find('#answers');
+    var answersCount = answers.children().length;
+    answers.append(`
+        <div id="answer${answersCount}">
+            <p><input type="text" name="answer_text"></p>
         </div>
         `);
 }

@@ -1,0 +1,129 @@
+/* MOVING SQUARE */
+
+@keyframes move-x {
+  0% {
+    transform: translateX(-150px);
+  }
+  100% {
+    transform: translateX(150px);
+  }
+}
+
+
+
+.moving-square {
+  -webkit-animation: 2s move-x infinite;
+
+  /*animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-name: move-x;
+  animation-timing-function: ease-in-out;*/
+}
+
+/* DEEP SEA START */
+
+.bubble--1 {
+  bottom: -3rem;
+  left: 35%;
+
+  animation: 3s blow-up infinite ease-in-out, 3s wiggle infinite ease-in-out;
+}
+
+.bubble--2 {
+  bottom: 2rem;
+  left: 42%;
+
+  animation: 3s blow-up infinite ease-in-out, 3s wiggle infinite ease-in-out;
+}
+.bubble--3 {
+  bottom: 3rem;
+  left: 49%;
+
+  animation: 3s blow-up infinite ease-in-out 0.15s, 3s wiggle infinite ease-in-out 0.25s;
+}
+.bubble--4 {
+  bottom: 1rem;
+  left: 55%;
+
+  animation: 3s blow-up infinite ease-in-out 0.3s, 3s wiggle infinite ease-in-out 0.7s;
+}
+.bubble--5 {
+  bottom: -7rem;
+  left: 66%;
+
+  animation: 2s blow-up infinite ease-in-out 0.1s, 2s wiggle infinite ease-in-out 0.33s;
+}
+
+/* DEEP SEA END */
+
+/* SUN RISE START */
+
+@keyframes move-sun-x {
+  0% {
+    transform: translateX(-450px);
+  }
+  100% {
+    transform: translateX(110vw);
+  }
+}
+
+@keyframes move-sun-y {
+  0% {
+    transform: translateY(60vh);
+  }
+  50% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(60vh);
+  }
+}
+
+@keyframes sky {
+  0% {
+    background: #ff0062;
+  }
+  60%{
+    background: rgb(0, 204, 255);
+  }
+  95% {
+    background: #000000;
+  }
+  100%{
+    background: #ff0062;
+  }
+}
+
+.sun-rise {
+  animation: 8s sky infinite linear;
+}
+
+.sun {
+  position: relative;
+
+  width: 450px;
+  height: 450px;
+  background: transparent;
+
+  animation: 8s move-sun-y infinite ease-in-out;
+}
+
+.sun::after {
+  content: '';
+
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+
+  background: radial-gradient(#ffce2d, #ffff00);
+
+  box-shadow: 0 0 250px #fdf368;
+
+  border: 1px solid #fffb00;
+  border-radius: 100%;
+
+  animation: 8s move-sun-x infinite ease-in-out;
+}
