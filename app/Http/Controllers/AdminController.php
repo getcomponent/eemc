@@ -354,7 +354,7 @@ class AdminController extends Controller
     }
 
     private function upload_file($name) {
-        $uploaddir = 'D:\OSPanel\domains\diplom\public\\';
+        $uploaddir = '/app/public/';
         $filename = $this->transliterate(basename($_FILES[$name]['name']));
         $uploadfile = $uploaddir . $filename;
 
