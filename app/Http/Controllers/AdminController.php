@@ -16,11 +16,11 @@ use Illuminate\Support\Facades\DB;
 class AdminController extends Controller
 {
     public function index() {
-    	if(!$this->is_admin()) {
+        if(!$this->is_admin()) {
             return view('error');
         }
         $user = \Auth::user();
-    	return view('admin')->with('user', $user);
+        return view('admin')->with('user', $user);
     }
 
     public function users() {
@@ -356,14 +356,18 @@ class AdminController extends Controller
 
     private function upload_file($name) {
         $uploaddir = '/app/public/';
-        $filename = $this->transliterate(strrchr($_FILES[$name]['name'], '/'));
+        $filename = $this->transliterate($_FILES[$name]['name']);
         $uploadfile = $uploaddir . $filename;
 
-        if (!move_uploaded_file($_FILES[$name]['tmp_name'], $uploadfile)) {
+        if ($filename == null) {
             return null;
         }
 
-        return $filename;
+        if (move_uploaded_file($_FILES[$name]['tmp_name'], $uploadfile)) {
+            return $filename;
+        }
+
+        return null;
     }
 
     private function is_admin() {
