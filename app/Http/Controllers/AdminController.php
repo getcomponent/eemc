@@ -356,7 +356,7 @@ class AdminController extends Controller
 
     private function upload_file($name) {
         $uploaddir = '/app/public/';
-        $filename = $this->transliterate(basename($_FILES[$name]['name']));
+        $filename = $this->transliterate(strrchr($_FILES[$name]['name'], '/'));
         $uploadfile = $uploaddir . $filename;
 
         if (!move_uploaded_file($_FILES[$name]['tmp_name'], $uploadfile)) {
