@@ -338,6 +338,7 @@ class AdminController extends Controller
 
         $doc_name = $this->upload_file('doc');
         $image_name = $this->upload_file('image');
+
         if (!$this->is_valid([$doc_name, $image_name])) {
             abort(500);
         }
@@ -345,8 +346,8 @@ class AdminController extends Controller
         $d = new Doc();
         $d->name = $name;
         $d->description = $description;
-        $d->path = $this->transliterate($_FILES['doc']['name']);
-        $d->image = $this->transliterate($_FILES['image']['name']);
+        $d->path = $doc_name;
+        $d->image = $image_name;
         $d->section_id = $section;
         $d->save();
 
@@ -362,7 +363,7 @@ class AdminController extends Controller
             return null;
         }
 
-        return $uploadfile;
+        return $filename;
     }
 
     private function is_admin() {
