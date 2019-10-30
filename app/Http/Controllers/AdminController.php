@@ -132,7 +132,7 @@ class AdminController extends Controller
             $questions = array();
             $qa = array();
 
-            foreach ($_POST['question'] as $key => $q) {
+            foreach ($_POST['questions'] as $key => $q) {
                 $question = new Question();
                 $question->text = $q['text'];
                 $question->image = "";

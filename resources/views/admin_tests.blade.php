@@ -22,7 +22,6 @@
             <th>Количество вопросов</th>
             <th></th>
             <th></th>
-            <th></th>
         </tr>
         @foreach ($tests as $test)
         <tr id="test{{$test->id}}">
@@ -30,7 +29,6 @@
             <td>{{$test->name}}</td>
             <td>{{$test->questions_count}}</td>
             <td><button type="submit" onclick="deleteTest({{$test->id}})">Удалить</button></td>
-            <td><button type="submit">Изменить</button></td>
         </tr>
         @endforeach
     </table>

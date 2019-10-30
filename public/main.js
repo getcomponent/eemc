@@ -182,6 +182,18 @@ function addAnswer() {
     answers.append(`
         <div id="answer${answersCount}">
             <p><input type="text" name="answer_text"></p>
+            <span><input type="radio" name="radio"></span>
         </div>
         `);
+}
+
+function addTest() {
+    test_name = document.getElementByName("test_name")
+    questions = document.getElementsByName("question_text");
+    answers = document.getElementsByName("answer_text");
+
+    $.post("/admin/tests/add", { test_name: test_name, questions: questions, answer:answer})
+        .done(function(data) {
+            location.reload();
+        });
 }
