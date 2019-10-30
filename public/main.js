@@ -181,7 +181,7 @@ function addAnswer() {
     var answersCount = answers.children().length;
     answers.append(`
         <div id="answer${answersCount}">
-            <p>Ответ: <input type="text" name="answer_text"><input type="checkbox" name="check"></p>
+            <p><input type="radio" name="check${answersCount}"><input type="text" name="answer_text"></p>
         </div>
         `);
 }
