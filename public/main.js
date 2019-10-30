@@ -181,7 +181,7 @@ function addQuestion() {
 function addAnswer() {
     var answers = $(this).closest('.question').find('#answers');
     var answersCount = answers.children().length;
-    var count = $(this).closest('.question').id;
+    var count = $(this).closest('.question').attr('id');
     answers.append(`
         <div id="answer${answersCount}">
             <p><input type="radio" name="check${count}"><input type="text" name="answer_text"></p>
