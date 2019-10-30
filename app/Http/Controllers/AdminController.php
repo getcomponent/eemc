@@ -134,27 +134,21 @@ class AdminController extends Controller
             $questions = array();
             $qa = array();
 
-            foreach ($_POST['questions'] as $key => $q) {
+            foreach ($_POST['question_text'] as $key => $q) {
                 $question = new Question();
-                $question->text = $q['text'];
+                $question->text = $q;
                 $question->image = "";
 
                 $answers = array();
                 $correct = false;
+                $checks = array();
 
-                foreach ($q['answers'] as $a) {
+                foreach ($_POST['answer_text'][$key] as $pew => $a) {
                     $answer = new Answer();
-                    $answer->text = $a['text'];
-                    if (isset($a['is_correct'])) {
-                        $answer->is_correct = $a['is_correct'];    
-                    }
+                    $answer->text = $a;
+                    $answer->is_correct = $_POST['check'][$key][$pew] == 'on' ? 'y' : 'n';    
 
-                    if (isset($answer->text)) {
-                        array_push($answers, $answer);
-                    }
-                    if ($answer->is_correct == "y") {
-                        $correct = true;
-                    }
+                    array_push($answers, $answer);
                 }
 
                 if (isset($question->text) && count($answers) >= 2 && $correct) {
@@ -177,30 +171,6 @@ class AdminController extends Controller
                 $test->path = $this->slugify($this->transliterate($testName));
                 $test->image = "";
                 $test->save();
-
-                // $tests = Test::all();
-
-                // DB::statement('SET FOREIGN_KEY_CHECKS=0;');
-
-                // for ($i = 0; $i < count($tests); $i++) {
-                //     $t = $tests[$i];
-                //     $index = $i + 1;
-
-                //     $qs = Question::all()->where('test_id', $t->id);
-                //     foreach ($qs as $q) {
-                //         $q->test_id = $index;
-                //         $q->save();
-                //     }
-                //     //throw new \Exception($qs);
-
-                //     if ($t->id != $index) {
-
-                //         $t->id = $index;
-                //         $t->save();
-                //     }
-                // }
-
-                // DB::statement('SET FOREIGN_KEY_CHECKS=1;');
 
                 foreach ($questions as $question) {
                     $question->test_id = $test->id;
