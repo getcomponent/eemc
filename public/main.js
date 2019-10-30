@@ -170,7 +170,7 @@ function addQuestion() {
 
     $('#questions').append(`
         <div class="question" id="${count}" style="margin-top: 50px; margin-bottom: 50px;">
-            <p>Вопрос: <input type="text" name="question_text[${count}]"></p>
+            <p>Вопрос: <input type="text" name="question_text[]"></p>
             <div id="answers">
             </div>
             <input type="button" class="add_answer" value="Добавить ответ">
@@ -184,7 +184,7 @@ function addAnswer() {
     var count = $(this).closest('.question').attr('id');
     answers.append(`
         <div id="answer${answersCount}">
-            <p><input type="checkbox" name="check${count} id_q="${answersCount}"><input type="text" name="answer_text[${answersCount}]"></p>
+            <p><input type="checkbox" name="check${count}" id_q="${answersCount}"><input type="text" name="answer_text[${count}][]"></p>
         </div>
         `);
 }
