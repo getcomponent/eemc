@@ -127,6 +127,8 @@ class AdminController extends Controller
 
         } else if (\Request::isMethod('post')) {
 
+            try {
+
             $testName = $_POST['test_name'];
 
             $questions = array();
@@ -158,6 +160,11 @@ class AdminController extends Controller
             if (count($questions) < 2) {
                 abort(500);
             }
+
+        } catch (Exception $e) {
+            var_dump($e->getMessage());
+                return;
+        }
 
             try {
 
