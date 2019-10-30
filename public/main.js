@@ -166,8 +166,10 @@ $(document).ready(function() {
 });
 
 function addQuestion() {
+    var count = $('#questions').children().length;
+
     $('#questions').append(`
-        <div class="question" style="margin-top: 50px; margin-bottom: 50px;">
+        <div class="question" id="question${count}" style="margin-top: 50px; margin-bottom: 50px;">
             <p>Вопрос: <input type="text" name="question_text"></p>
             <div id="answers">
             </div>
