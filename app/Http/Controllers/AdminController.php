@@ -127,8 +127,7 @@ class AdminController extends Controller
 
         } else if (\Request::isMethod('post')) {
 
-            var_dump($_POST);
-            return;
+            return json_encode($_POST);
 
             $testName = $_POST['test_name'];
 
