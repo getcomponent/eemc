@@ -169,7 +169,7 @@ function addQuestion() {
     var count = $('#questions').children().length;
 
     $('#questions').append(`
-        <div class="question" id="question${count}" style="margin-top: 50px; margin-bottom: 50px;">
+        <div class="question" id="${count}" style="margin-top: 50px; margin-bottom: 50px;">
             <p>Вопрос: <input type="text" name="question_text"></p>
             <div id="answers">
             </div>
@@ -184,18 +184,7 @@ function addAnswer() {
     var count = $(this).closest('.question').attr('id');
     answers.append(`
         <div id="answer${answersCount}">
-            <p><input type="radio" name="check${count}"><input type="text" name="answer_text"></p>
+            <p><input type="checkbox" name="check${count} id_q="${answersCount}"><input type="text" name="answer_text"></p>
         </div>
         `);
-}
-
-function addTest() {
-    test_name = document.getElementByName("test_name")
-    questions = document.getElementsByName("question_text");
-    answers = document.getElementsByName("answer_text");
-
-    $.post("/admin/tests/add", { test_name: test_name, questions: questions, answer:answer})
-        .done(function(data) {
-            location.reload();
-        });
 }

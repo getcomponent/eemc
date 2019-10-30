@@ -127,6 +127,9 @@ class AdminController extends Controller
 
         } else if (\Request::isMethod('post')) {
 
+            var_dump($_POST);
+            return;
+
             $testName = $_POST['test_name'];
 
             $questions = array();
