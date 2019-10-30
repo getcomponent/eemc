@@ -168,7 +168,7 @@ $(document).ready(function() {
 function addQuestion() {
     $('#questions').append(`
         <div class="question" style="margin-top: 50px; margin-bottom: 50px;">
-            <p>Текст вопроса: <input type="text" name="question_text"></p>
+            <p>Вопрос: <input type="text" name="question_text"></p>
             <div id="answers">
             </div>
             <input type="button" class="add_answer" value="Добавить ответ">
@@ -181,8 +181,7 @@ function addAnswer() {
     var answersCount = answers.children().length;
     answers.append(`
         <div id="answer${answersCount}">
-            <p><input type="text" name="answer_text"></p>
-            <span><input type="radio" name="radio"></span>
+            <p>Ответ: <input type="text" name="answer_text"><input type="checkbox" name="check"></p>
         </div>
         `);
 }

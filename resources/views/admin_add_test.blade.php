@@ -6,8 +6,10 @@
     <form method="POST" action="addTest()">
         @csrf
         <input type="text" name="test_name">
+        <br>
         <div id="questions">
         </div>
+        <br>
         <input type="button" value="Добавить вопрос" onclick="addQuestion()">
         <input type="submit">
     </form>
