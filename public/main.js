@@ -184,7 +184,11 @@ function addAnswer() {
     var count = $(this).closest('.question').attr('id');
     answers.append(`
         <div id="answer${answersCount}">
-            <p><input type="checkbox" name="check[${count}][]"><input type="text" name="answer_text[${count}][]"></p>
+            <p>
+                <input type="hidden" value="off" name="check[${count}][${answersCount}]">
+                <input type="checkbox" name="check[${count}][${answersCount}]">
+                <input type="text" name="answer_text[${count}][]">
+            </p>
         </div>
         `);
 }
